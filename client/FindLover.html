@@ -4,7 +4,7 @@
 
 <body>
   <p>////////// Login Test //////////</p>
-  {{> login}}
+  {{> user}}
   <p>////////// End of Login Test //////////</p>
 
   <p>////////// Rooms Test //////////</p>
@@ -16,13 +16,19 @@
   <p>////////// End of Users Test //////////</p>
 </body>
 
-<template name="login">
+<template name="user">
   <div>
     <form class="login">
       <p><input type="text" name="name" placeholder="Your UserName" /></p>
       <p><input type="password" name="passwd" placeholder="Your Password" /></p>
       <p><input type="submit" name="submit" value="login" /></p>
       <p>{{tip}}</p>
+    </form>
+    <form class="create">
+      <p><input type="text" name="name" placeholder="Your UserName" /></p>
+      <p><input type="password" name="passwd" placeholder="Your Password" /></p>
+      <p><input type="text" name="sex" placeholder="Your Sex" /></p>
+      <p><input type="submit" name="submit" value="create" /></p>
     </form>
   </div>
 </template>
@@ -36,7 +42,14 @@
     </form>
     <ul>
       {{#each rooms}}
-      <li class="room {{selected}}">{{name}}</li>
+	<li class="room {{#if selected}}selected{{/if}} {{#if entered}}entered{{/if}}">
+	  {{name}}
+          {{#if entered}}
+	  <input type="button" name="leave" value="leave" class="leave" />
+          {{else}}
+	  <input type="button" name="enter" value="enter" class="enter" />
+          {{/if}}
+        </li>
       {{/each}}
     </ul>
   </div>

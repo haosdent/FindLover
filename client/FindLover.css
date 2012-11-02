@@ -3,3 +3,6 @@
 .selected {
     background-color: yellow;
 }
+.entered {
+    background-color: green;
+}
