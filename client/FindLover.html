@@ -1,0 +1,53 @@
+<head>
+  <title>FindLover Test Page</title>
+</head>
+
+<body>
+  <p>////////// Login Test //////////</p>
+  {{> login}}
+  <p>////////// End of Login Test //////////</p>
+
+  <p>////////// Rooms Test //////////</p>
+  {{> rooms}}
+  <p>////////// End of Rooms Test //////////</p>
+
+  <p>////////// Users Test //////////</p>
+  {{> users}}
+  <p>////////// End of Users Test //////////</p>
+</body>
+
+<template name="login">
+  <div>
+    <form class="login">
+      <p><input type="text" name="name" placeholder="Your UserName" /></p>
+      <p><input type="password" name="passwd" placeholder="Your Password" /></p>
+      <p><input type="submit" name="submit" value="login" /></p>
+      <p>{{tip}}</p>
+    </form>
+  </div>
+</template>
+
+<template name="rooms">
+  <div>
+    <form class="create">
+      <p><input type="text" name="name" placeholder="Type room name" /></p>
+      <p><input type="submit" name="submit" value="create" /></p>
+      <p>{{tip}}</p>
+    </form>
+    <ul>
+      {{#each rooms}}
+      <li class="room {{selected}}">{{name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="users">
+  <div>
+    <ul>
+      {{#each users}}
+      <li>{{name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</template>
