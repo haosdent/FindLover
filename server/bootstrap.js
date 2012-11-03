@@ -1,6 +1,6 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function(){
-    if (Users.find().count() === 0) {
+    /*if (Users.find().count() === 0) {
 	var users = [
 	    {
 		name: 'user1',
@@ -37,5 +37,5 @@ Meteor.startup(function(){
 	for (i = 0, l = rooms.length; i < l; i++) {
 	    Rooms.insert(rooms[i]);
 	}
-    };
+    };*/
 });
